@@ -20,7 +20,7 @@ rings = 1
 [sub_resource type="BoxShape3D" id="BoxShape3D_k343l"]
 size = Vector3(0.205469, 0.0422119, 0.170801)
 
-[sub_resource type="Resource" id="Resource_iq4sy"]
+[sub_resource type="Resource" id="Resource_ey0c8"]
 resource_local_to_scene = true
 script = ExtResource("4_wdnhm")
 inventory_item = ExtResource("3_q3la1")
@@ -59,4 +59,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0501884, 0.0155918, 0.0245
 shape = SubResource("BoxShape3D_k343l")
 
 [node name="PickupComponent" parent="." instance=ExtResource("2_028c2")]
-slot_data = SubResource("Resource_iq4sy")
+slot_data = SubResource("Resource_ey0c8")
