@@ -32,7 +32,7 @@ func _ready():
 	if parent_object.has_signal("body_entered"):
 		parent_object.body_entered.connect(_on_body_entered) #Connecting to body entered signal
 	else:
-		print(parent_object.name, ": CarriableComponent needs to be child to a RigidBody3D to work.")
+		CogitoGlobals.debug_log(true,"CarryableComponent.gd", parent_object.name + ": CarriableComponent needs to be child to a RigidBody3D to work.")
 
 
 func interact(_player_interaction_component:PlayerInteractionComponent):
@@ -54,7 +54,8 @@ func carry(_player_interaction_component:PlayerInteractionComponent):
 
 func _physics_process(_delta):
 	if is_being_carried:
-		carry_position = player_interaction_component.get_interaction_raycast_tip(carry_distance_offset)
+		#carry_position = player_interaction_component.get_interaction_raycast_tip(carry_distance_offset)
+		carry_position = player_interaction_component.get_carryable_destination_point(carry_distance_offset)
 		parent_object.set_linear_velocity((carry_position - parent_object.global_position) * carrying_velocity_multiplier)
 		
 		if(carry_position-parent_object.global_position).length() >= drop_distance:
